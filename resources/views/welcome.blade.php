@@ -17,7 +17,7 @@
 		</div>
 	</nav>
 	<div class="section no-pad-bot" id="index-banner">
-		<div class="container">			
+		<div class="container">	
 			<form method="post" action="/login">
 				@csrf
 				<div class="row">
