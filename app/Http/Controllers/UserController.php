@@ -17,10 +17,10 @@ class UserController extends Controller
 
     public function login(UserRequest $request)
     {
-        $request->validated(); // return validation errors to page if theres is any
-
         // trim all user inputs
         $request->request->replace(array_map('trim', $request->request->all()));
+
+        $request->validated(); // return validation errors to home page if theres is any
 
         $credentials = $request->getCredentials();
 
