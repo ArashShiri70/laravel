@@ -18,7 +18,8 @@
 	</nav>
 	<div class="section no-pad-bot" id="index-banner">
 		<div class="container">
-			<form method="post" action="">
+			<form method="post" action="login">
+				@csrf
 				<div class="row">
 					<div class="input-field col s6">
 						<input type="text" name="user_name" id="user_name">
@@ -30,10 +31,7 @@
 					</div>
 				</div>
 				<button class="btn">
-					signin
-				</button>
-				<button class="btn">
-					signup
+					SignIn
 				</button>
 			</form>
 
