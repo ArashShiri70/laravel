@@ -17,17 +17,23 @@
 		</div>
 	</nav>
 	<div class="section no-pad-bot" id="index-banner">
-		<div class="container">
-			<form method="post" action="login">
+		<div class="container">			
+			<form method="post" action="/login">
 				@csrf
 				<div class="row">
 					<div class="input-field col s6">
 						<input type="text" name="user_name" id="user_name">
 						<label for="user_name">user name</label>
+						@if($errors->has('user_name'))
+						    <div class="error">{{ $errors->first('user_name') }}</div>
+						@endif
 					</div>
 					<div class="input-field col s6">
 						<input type="password" name="password" id="password">
 						<label for="password">password</label>
+						@if($errors->has('password'))
+						    <div class="error">{{ $errors->first('password') }}</div>
+						@endif
 					</div>
 				</div>
 				<button class="btn">

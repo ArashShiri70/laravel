@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,9 +14,8 @@ class UserController extends Controller
         return view('welcome');
     }
 
-    public function login()
+    public function login(UserRequest $request)
     {
-        var_dump($_POST);
-        die();
+        $validated = $request->validated();
     }
 }
