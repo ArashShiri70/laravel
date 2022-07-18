@@ -21,12 +21,19 @@ class UserController extends Controller
 
         // trim all user inputs
         $request->request->replace(array_map('trim', $request->request->all()));
-        
-        Auth::attempt([
-            'user_name' => $request->get('user_name'), 
-            'password' => $request->get('password')
-        ]);
 
-        return redirect('/');
+        $credentials = $request->getCredentials();
+
+        if(!Auth::validate($credentials)){
+            return redirect()->to('/')
+                ->withErrors(
+                    ['credentials_error' => 'user name(email) or password is wrong']
+                )
+            ;
+        }
+        else{
+            Auth::attempt($credentials);
+            return redirect('/panel');
+        }    
     }
 }

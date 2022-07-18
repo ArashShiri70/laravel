@@ -18,12 +18,15 @@
 	</nav>
 	<div class="section no-pad-bot" id="index-banner">
 		<div class="container">	
+			@if($errors->has('credentials_error'))
+			  <div class="error">{{$errors->first('credentials_error')}}</div>
+			@endif
 			<form method="post" action="/login">
 				@csrf
 				<div class="row">
 					<div class="input-field col s6">
 						<input type="text" name="user_name" id="user_name">
-						<label for="user_name">user name</label>
+						<label for="user_name">user name(email)</label>
 						@if($errors->has('user_name'))
 						    <div class="error">{{ $errors->first('user_name') }}</div>
 						@endif

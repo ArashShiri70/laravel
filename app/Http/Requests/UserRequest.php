@@ -28,4 +28,12 @@ class UserRequest extends FormRequest
             'password' => 'required',
         ];
     }
+
+    public function getCredentials()
+    {
+        return [
+            'user_name' => $this->get('user_name'),
+            'password' => $this->get('password')
+        ];
+    }
 }
